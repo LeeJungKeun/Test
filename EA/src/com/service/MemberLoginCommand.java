@@ -17,7 +17,7 @@ public class MemberLoginCommand  {
 		  
 		String id = request.getParameter("id");
 		String pass = request.getParameter("pass");
-
+		String aa;
 		MemeberDTO dto = new MemeberDTO();
 		dto.setId(id);
 		dto.setPass(pass);
