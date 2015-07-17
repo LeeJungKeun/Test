@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="stadium">
+
+
+	<select id="stadiumList" resultType="com.dto.StadiumDTO">
+	select * from stadium;
+	</select>
+
+	<insert id="insert" parameterType="com.dto.applyTeamDTO" >
+	insert into ApplyTeam (teamNo,applyPlayer,startTime,endTime,stadiumName)
+	values (#{teamNo},#{applyPlayer},#{startTime},#{endTime},#{stadiumName});
+	</insert>
+	
+	<!-- <select id="list" resultType="com.entity.BoardDTO">
+	select num,auther,title,to_char(writeday,'YYYY/MM/DD')writeday, readcdnt
+	from board 
+	order by num desc
+	</select>
+	
+	<select id="selectByNum" parameterType="int" resultType="com.entity.BoardDTO">
+	select num,auther,title,content,to_char(writeday,'YYYY/MM/DD')writeday, readcdnt
+	from board 
+	where num = #{num}
+	</select>
+	
+	<update id="readCnt" parameterType="int">
+	update board
+	set readcdnt = readcdnt+1
+	where num = #{num}
+	</update>
+	<delete id="delete" parameterType="int">
+	delete from board
+	where num = #{num}
+	
+	</delete>
+	
+	<update id="update" parameterType="com.entity.BoardDTO">
+	update board
+	set auther=#{auther},title =#{title}, content=#{content}
+	where num = #{num}
+	</update>
+	
+	
+	
+	<insert id="insert" parameterType="com.entity.BoardDTO">
+	insert into board (num,auther, title,content)
+	values (board_seq.nextval,#{auther}, #{title}, #{content})
+	
+	</insert>
+	
+	<select id="count" resultType="int">
+	select count(*) from board
+	
+	</select>
+	
+	<select id="search" parameterType="hashmap" resultType="com.entity.BoardDTO">
+	select num,auther,title,to_char(writeday,'YYYY/MM/DD')writeday, readcdnt
+	from board 
+	<choose>
+		<when test="searchName=='title'">
+			where title LIKE '%'||#{searchValue}|| '%'
+		</when>
+		
+		<otherwise>
+			where auther LIKE '%'||#{searchValue}|| '%'
+		</otherwise>
+	</choose>
+	
+	</select>
+	 search> -->
+	
+	
+</mapper>
